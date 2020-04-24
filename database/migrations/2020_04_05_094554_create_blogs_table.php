@@ -15,12 +15,13 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->integer('author_id')->unsigned()->default(0);
-            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
+//            $table->integer('author_id')->unsigned()->default(0);
+//            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
             $table->text('content');
-            $table->datetime('posted_at');
-            $table->timestamps();
+//            $table->datetime('posted_at')->default('CURRENT_TIMESTAMP');
+//            $table->datetime('posted_at');
+//            $table->timestamps();
         });
     }
 

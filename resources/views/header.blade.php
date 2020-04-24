@@ -137,7 +137,7 @@
                         <div class="menu-item top-level"><a href="#" style="color: white">Турниры</a></div>
                     </li>
                     <li class="col-3 has-second top-li">
-                        <div class="menu-item top-level"><a href="#" style="color: white">Блоги</a></div>
+                        <div class="menu-item top-level"><a href="/blogs/" style="color: white">Блоги</a></div>
                     </li>
                 </ul>
             </div>

@@ -83,7 +83,7 @@
                                                 @foreach($blogs as $blog)
                                                 <div class="views-row ">
                                                     <div class="field-image">
-                                                        <a href="/blogs/{{$blog->id}}">
+                                                        <a href="/blogs/detail/{{$blog->id}}">
                                                             <picture>
                                                                 <img src="/sites/images/blogs/blog1.png"  alt="name blog" title="name blog">
                                                             </picture>
@@ -91,10 +91,10 @@
                                                     </div>
                                                     <div class="record-data">
                                                         <div class="field-created">
-                                                            {{$blog->posted_at}}
+{{--                                                            {{$blog->posted_at}}--}}
                                                         </div>
                                                         <div class="field-title">
-                                                            <a href="/blogs/{{$blog->id}}">{{$blog->name}}</a>
+                                                            <a href="/blogs/detail/{{$blog->id}}">{{$blog->name}}</a>
 
                                                         </div>
                                                     </div>
@@ -104,7 +104,7 @@
 
                                             <div class="view-all-blogs">
                                                 <a class="stroke-button-green-wide"
-                                                   href="#" data-bid="1">Все блоги</a>
+                                                   href="/blogs/" data-bid="1">Все блоги</a>
                                             </div>
                                         </div>
                                     </div>

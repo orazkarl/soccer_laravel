@@ -1,4 +1,4 @@
-<title> {{$detail_news->name}}</title>
+{{--<title> {{$detail_news->name}}</title>--}}
 
 @extends('layout')
 
@@ -63,7 +63,7 @@
                                                                 <a href="/news/1177326/yovich-luka-real" class="normal">«Реал»
                                                                     не собирается расставаться с Йовичем</a></div>
                                                             <div class="news-c-tags">
-                                                                <span class="n-created">Сегодня, 08:28</span>
+                                                                <span class="n-created">Вчера, 08:28</span>
                                                                 <a href="/news/1177326/yovich-luka-real#discuss"><span
                                                                         class="comment-count"><img alt="Комментарии"
                                                                                                    src="/sites/all/themes/newtheme/images/comments.png"
@@ -123,7 +123,7 @@
                                                                 <div class="author">
                                                                     <a class="commentLogin" href="#">Name</a>
                                                                 </div>
-                                                                <div class="created">сегодня в 17:10, ред.</div>
+                                                                <div class="created">вчера в 17:10, ред.</div>
                                                                 <div class="commentBody">Хорошая кандидатура для Ромы</div>
 {{--                                                                <ul class="commentActions">--}}
 {{--                                                                    <li class="like">--}}
@@ -166,4 +166,6 @@
                     </div>
                 </div>
             </div> <!-- /#center -->
+        </div>
+    </div>
 @endsection

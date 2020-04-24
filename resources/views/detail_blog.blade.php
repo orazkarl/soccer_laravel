@@ -1,4 +1,4 @@
-<title> {{$blog->name}}</title>
+{{--<title> {{$blog->name}}</title>--}}
 
 @extends('layout')
 
@@ -61,7 +61,7 @@
                                     <div class="content">
                                         <div id="node-1177370" class="node news full odd">
                                             <div class="node-created">
-                                                {{$blog->posted_at}}
+{{--                                                {{$blog->posted_at}}--}}
                                                 <div class="links"></div>
                                             </div>
                                             <div class="field-name-body copy-protected">
@@ -133,7 +133,7 @@
                                                                 <div class="author">
                                                                     <a class="commentLogin" href="#">Name</a>
                                                                 </div>
-                                                                <div class="created">сегодня в 17:10, ред.</div>
+                                                                <div class="created">вчера в 17:10, ред.</div>
                                                                 <div class="commentBody">Хорошая кандидатура для Ромы
                                                                 </div>
                                                                 {{--                                                                <ul class="commentActions">--}}
