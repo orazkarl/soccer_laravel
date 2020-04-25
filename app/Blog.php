@@ -3,11 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class Blog extends Model
 {
-    protected $fillable = ['name', 'content'];
+    protected $fillable = ['author_id', 'name', 'content'];
     public $timestamps = false;
 
+    public function author_id(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
 
 }

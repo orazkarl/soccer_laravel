@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\CommentsBlog;
+use App\News;
+use App\User;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -12,13 +15,16 @@ class BlogController extends Controller
         // Get all Posts, ordered by the newest first
 //        $blogs = Blog::latest()->get();
         $blogs = Blog::all();
+        $news = News::all();
+        $users = User::all();
         // Pass Post Collection to view
-        return view('blog.index', ['blogs' => $blogs]);
+        return view('blog.index', ['blogs' => $blogs,'news' => $news, 'users'=> $users]);
     }
 
     public function create()
     {
-        return view('blog.create');
+        $news = News::all();
+        return view('blog.create', ['news' => $news]);
     }
 //
 //    /**
@@ -33,6 +39,7 @@ class BlogController extends Controller
         $validated = $request->validate([
             'name'    => 'required|string|unique:blogs|min:5|max:100',
             'content'  => 'required|string|min:5|max:2000',
+            'author_id' => 'required'
         ]);
 
         // Create and save blog with validated data
@@ -45,7 +52,17 @@ class BlogController extends Controller
     public function show(Blog $blog)
     {
         // Pass current post to view
-        return view('detail_blog', compact('blog'));
+        $news = News::all();
+        $blogs = Blog::all();
+        $comments = CommentsBlog::all();
+        $users = User::all();
+        return view('detail_blog', [
+            'blog'=>$blog,
+            'news' => $news,
+            'blogs' => $blogs,
+            'comments' => $comments,
+            'users' => $users
+        ]);
     }
 //    public function edit(Blog $blog)
 //    {

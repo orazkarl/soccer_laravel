@@ -4,6 +4,44 @@
 
     <div id="main_body">
         <br>
+        <div id="left" class="sidebar">
+            <div class="region region-left">
+                <div id="block-new-desine-left-main-news" class="block block-new-desine">
+                    <div class="content">
+                        <div class="view view-news view-news-sidebar">
+                            <div class="view-content">
+                                @foreach($news as $news_item)
+                                    <div class="news">
+                                        <div class="field-title">
+                                            <a class="normal" href="/news/{{$news_item->id}}">
+                                                <img class="nt-icon icon2" src="sites/all/themes/newtheme/images/ofice.png">
+                                                {{$news_item->name}}
+                                            </a>
+                                        </div>
+                                        <div class="news-tags">
+                                            <div class="inn">
+                                                <span class="created">{{$news_item->posted_at}}</span>
+                                                <a href="#">
+                                                                                                <span class="comment-count">
+                                                                                                    <img alt="Комментарии"  src="/sites/all/themes/newtheme/images/comments.png" width="17" height="17"/>
+                                                                                                    6
+                                                                                                </span>
+                                                </a>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <div class="right-bg">
                         <div id="right" class="sidebar" >
                             <div class="region-right-content">
@@ -56,7 +94,11 @@
 {{--                                                </li>--}}
 {{--                                            </ul>--}}
 {{--                                        </div>--}}
+                                        @guest
+                                            <div class="blogs-add-new"><a class="stroke-button-green" href="{{ route('login') }}">Добавить запись</a></div>
+                                        @else
                                         <div class="blogs-add-new"><a class="stroke-button-green" href="{{ route('blogs.create') }}">Добавить запись</a></div>
+                                        @endguest
                                         <div class="view-blogs-record">
                                             <div class="view-front-records">
                                                 <div class="line-row full-width">
@@ -76,17 +118,21 @@
 
                                                                 </div>
                                                                 <div class="title author">АВТОР</div>
-                                                                <div class="link author-profile"><a href="#">Name Surname</a></div>
+                                                                @foreach($users as $user)
+                                                                    @if($user->id ==$blog->author_id)
+                                                                <div class="link author-profile"><a href="#">{{$user->name}}</a></div>
+                                                                    @endif
+                                                                @endforeach
 {{--                                                                <div class="title blog">В блоге</div>--}}
 {{--                                                                <div class="link blog-name"><a href="/blogs/teamX"><span--}}
 {{--                                                                            itemprop="articleSection">Символические сборные</span></a>--}}
 {{--                                                                </div>--}}
-{{--                                                                <div class="record-created">{{ $blog->posted_at }}</div>--}}
+{{--                                                                 <div class="record-created">{{ $blog->posted_at }}</div>--}}
                                                             </div>
                                                         </div>
                                                         <div class="record-data">
                                                             <div class="field-title">
-                                                                <a href="/blogs/{{$blog->id}}">{{$blog->name}}</a>
+                                                                <a href="/blogs/detail/{{$blog->id}}">{{$blog->name}}</a>
                                                             </div>
 {{--                                                            <div class="field-record-body" itemprop="description">Хуан--}}
 {{--                                                                Мата назвал Кэррика самым недооцененным футболистом МЮ,--}}

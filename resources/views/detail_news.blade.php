@@ -5,6 +5,47 @@
 @section('main')
 
     <div id="main_body">
+
+        <div id="left" class="sidebar">
+            <div class="region region-left">
+                <div id="block-new-desine-left-main-news" class="block block-new-desine">
+                    <div class="content">
+                        <div class="view view-news view-news-sidebar">
+                            <div class="view-content">
+                                @foreach($news as $news_item)
+                                    @if($news_item!=$detail_news)
+                                    <div class="news">
+                                        <div class="field-title">
+                                            <a class="normal" href="/news/{{$news_item->id}}">
+                                                <img class="nt-icon icon2" src="sites/all/themes/newtheme/images/ofice.png">
+                                                {{$news_item->name}}
+                                            </a>
+                                        </div>
+                                        <div class="news-tags">
+                                            <div class="inn">
+                                                <span class="created">{{$news_item->posted_at}}</span>
+                                                {{--                                            <a href="#">--}}
+                                                {{--                                                <span class="comment-count">--}}
+                                                {{--                                                    <img alt="Комментарии"  src="/sites/all/themes/newtheme/images/comments.png" width="17" height="17"/>--}}
+                                                {{--                                                    6--}}
+                                                {{--                                                </span>--}}
+                                                {{--                                            </a>--}}
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                @endforeach
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <br>
         <div class="right-bg">
             @include('tournaments')
@@ -55,27 +96,27 @@
 
 
                                             <div class="clear"></div>
-                                            <div class="more-materials">
-                                                <div class="view view-news center">
-                                                    <div class="view-content">
-                                                        <div class="news news-record">
-                                                            <div class="news-title">
-                                                                <a href="/news/1177326/yovich-luka-real" class="normal">«Реал»
-                                                                    не собирается расставаться с Йовичем</a></div>
-                                                            <div class="news-c-tags">
-                                                                <span class="n-created">Вчера, 08:28</span>
-                                                                <a href="/news/1177326/yovich-luka-real#discuss"><span
-                                                                        class="comment-count"><img alt="Комментарии"
-                                                                                                   src="/sites/all/themes/newtheme/images/comments.png"
-                                                                                                   width="17"
-                                                                                                   height="17"/>10</span></a>
-                                                            </div>
-                                                        </div>
+{{--                                            <div class="more-materials">--}}
+{{--                                                <div class="view view-news center">--}}
+{{--                                                    <div class="view-content">--}}
+{{--                                                        <div class="news news-record">--}}
+{{--                                                            <div class="news-title">--}}
+{{--                                                                <a href="/news/1177326/yovich-luka-real" class="normal">«Реал»--}}
+{{--                                                                    не собирается расставаться с Йовичем</a></div>--}}
+{{--                                                            <div class="news-c-tags">--}}
+{{--                                                                <span class="n-created">Вчера, 08:28</span>--}}
+{{--                                                                <a href="/news/1177326/yovich-luka-real#discuss"><span--}}
+{{--                                                                        class="comment-count"><img alt="Комментарии"--}}
+{{--                                                                                                   src="/sites/all/themes/newtheme/images/comments.png"--}}
+{{--                                                                                                   width="17"--}}
+{{--                                                                                                   height="17"/>10</span></a>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
 
 
-                                                    </div>
-                                                </div>
-                                            </div>
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
 
                                         </div>
                                         <div id="discuss">
@@ -106,39 +147,39 @@
                                                 <div class="block-title">Все комментарии</div>
                                                 <div class="content">
                                                     <div class="comment-list">
-                                                        <div class="comment">
-                                                            <div class="comment-at-id" data-val="0"></div>
-                                                            <div class="comment-at-fid" data-val="0"></div>
-                                                            <div class="comment-at-video" data-val=""></div>
-                                                            <div class="author-photo">
-                                                                <picture>
-                                                                    <source
-                                                                        data-srcset="/sites/images/news/comment_no_picture.png"
-                                                                        type="image/webp">
-                                                                    <img src="/sites/images/news/comment_no_picture.png"
-                                                                         alt="AgentART" width="70" height="70"/>
-                                                                </picture>
-                                                            </div>
-                                                            <div class="comment-right">
-                                                                <div class="author">
-                                                                    <a class="commentLogin" href="#">Name</a>
+                                                        @foreach($comments as $comment)
+                                                            @if($comment->news_id==$detail_news->id)
+                                                                <div class="comment">
+                                                                    <div class="comment-at-id" data-val="0"></div>
+                                                                    <div class="comment-at-fid" data-val="0"></div>
+                                                                    <div class="comment-at-video" data-val=""></div>
+                                                                    <div class="author-photo">
+                                                                        <picture>
+                                                                            <source
+                                                                                data-srcset="/sites/images/news/comment_no_picture.png"
+                                                                                type="image/webp">
+                                                                            <img
+                                                                                src="/sites/images/news/comment_no_picture.png"
+                                                                                alt="AgentART" width="70" height="70"/>
+                                                                        </picture>
+                                                                    </div>
+                                                                    <div class="comment-right">
+                                                                        <div class="author">
+                                                                            @foreach($users as $user)
+                                                                                @if($user->id==$comment->author_id)
+                                                                                    <a class="commentLogin"
+                                                                                       href="#">{{$user->name}}</a>
+                                                                                @endif
+                                                                            @endforeach
+                                                                        </div>
+                                                                        {{--                                                                <div class="created">вчера в 17:10, ред.</div>--}}
+                                                                        <div class="commentBody">{{$comment->text}}
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="created">вчера в 17:10, ред.</div>
-                                                                <div class="commentBody">Хорошая кандидатура для Ромы</div>
-{{--                                                                <ul class="commentActions">--}}
-{{--                                                                    <li class="like">--}}
-{{--                                                                        <div class="vote_wrapp">--}}
-{{--                                                                            <div cid="29831508"--}}
-{{--                                                                                 class="votePlusButton can-vote vbt vbt-29831508">--}}
-{{--                                                                                <div class="vimg"></div>--}}
-{{--                                                                            </div>--}}
-{{--                                                                            <span--}}
-{{--                                                                                class="commentRating commentRating-29831508">0</span>--}}
-{{--                                                                        </div>--}}
-{{--                                                                    </li>--}}
-{{--                                                                </ul>--}}
-                                                            </div>
-                                                        </div>
+                                                            @endif
+                                                        @endforeach
+
 
                                                     </div>
 
@@ -146,12 +187,44 @@
                                                 </div>
                                             </div>
                                             <div id="add-form-not-auth">
-                                                <div class="picture"><img src="/sites/all/themes/newtheme/images/comment_no_picture.png"/></div>
-                                                <div class="comment-body">
-                                                    <div><a class="ctools-use-modal" href="/login">Авторизуйтесь</a>,
-                                                        чтобы оставить свой комментарий</div>
+                                                <div class="picture"><img
+                                                        src="/sites/all/themes/newtheme/images/comment_no_picture.png"/>
                                                 </div>
-                                                <div class="button-submit">Отправить</div>
+                                                <div class="">
+                                                    @guest
+                                                        <div><a class="ctools-use-modal" href="/login">Авторизуйтесь</a>,
+                                                            чтобы оставить свой комментарий
+                                                        </div>
+                                                    @else
+                                                        <form class="node-kp_liga-form soccer-blogs-edit-form"
+                                                              action="{{ route('comments_news.store') }}" method="post">
+                                                            @csrf
+                                                            <div>
+                                                                <div
+                                                                    class="form-item form-type-textfield form-item-title">
+                                                                    <input class="maxlength form-text required"
+                                                                           type="text"
+                                                                           id="edit-title" name="text"
+                                                                           value="{{ old('text') }}"
+                                                                           size="60"
+                                                                           maxlength="255" style="margin: -69px -8px 0
+                                                                    0; height: 67px">
+                                                                </div>
+                                                                <br>
+                                                                <input type="number" style="display:none;" name="news_id"
+                                                                       value="{{ $detail_news->id }}">
+                                                                <br>
+                                                                <input type="number" style="display:none;" name="author_id"
+                                                                       value="{{ Auth::user()->id }}">
+                                                            </div>
+                                                            <div class="form-actions form-wrapper" id="edit-actions">
+                                                                <input
+                                                                    type="submit" id="edit-submit" name="save"
+                                                                    value="Отправить"
+                                                                    class="form-submit"/></div>
+                                                        </form>
+                                                    @endguest
+                                                </div>
                                             </div>
                                             <div  class="block block-block">
                                                 <div class="content">

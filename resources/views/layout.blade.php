@@ -4,6 +4,7 @@
 {{--    <base href="https://www.soccer.ru"/>--}}
     <title>Soccer</title>
     <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
