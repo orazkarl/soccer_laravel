@@ -33,6 +33,38 @@
             src="/sites/default/files/js/js_7T4LfHs3a4kIYHL3E_j4T58hehQZgvMyzKrZrcyOrC8.js"></script>
 
     <link type="text/css" rel="stylesheet" href="https://www.soccer.ru/sites/default/files/css/css_e9nXrqG_G5ojwyg5EaoiD2zS3UGgTXvqAJCenzjhGh4.css" media="all" />
+    <style>
+        input, textarea, button {
+            -webkit-appearance: none;
+            -webkit-font-smoothing: antialiased;
+            resize: none;
+        }
+        input[type="radio"]{
+            -webkit-appearance: radio;
+        }
+    </style>
+    <style>
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table td, .table th {
+            padding: .75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
 </head>
 <body>
 

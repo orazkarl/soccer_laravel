@@ -22,8 +22,9 @@ Route::get('/blogs/', 'BlogController@index');
 Route::resource('blogs', 'BlogController');
 Route::resource('comment_blogs', 'CommentsBlogController');
 Route::resource('comments_news', 'CommentsNewsController');
-
-
+Route::get('/guess_team/{id}', 'GuessTeamController@show');
+Route::resource('guess_team', 'GuessTeamController');
+Route::get('/guess_team_finish', 'GuessTeamController@store');
 
 
 Auth::routes();
